@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리스트를 이용한 메뉴 만들기</title>
+<style type="text/css">
+/*
+*						{ margin:0; padding:0 }
+body					{ font-family: '맑은 고딕', 돋움; font-size:0.75em; color:#333 }
+
+.tab-box				{ margin:20px auto; width:520px }
+.tab-box ul				{ height:27px; list-style-type: none }
+.tab-box ul li			{ 
+	float: right; 
+	width:100px; 
+	height:22px; 
+	border:1px solid #999; 
+	background-color:#ccc; 
+	margin-right:2px; 
+	border-radius:5px 5px 0 0;
+	text-align:center;
+	padding-top:3px;
+	cursor:pointer; 
+}
+
+.tab-box div			{ width:100%; border:1px solid #999; margin-top:-1px; text-align:center; line-height:200px; width:516px }
+
+.tab-box ul li.selected	{ background-color:#FFCC66 } 
+ */
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	font-family: '맑은 고딕', 돋움;
+	font-size: 0.75em;
+	color: #333
+}
+
+.tab-box {
+	width: 520px;
+	margin: 20px auto;
+}
+
+.tab-box ul {
+	list-style-type: none;
+	height: 29px;
+}
+
+.tab-box ul li {
+	float: left;
+	border: 1px solid #999;
+	margin-right: 2px;
+	padding-top: 5px;
+	width: 100px;
+	height: 22px;
+	text-align: center;
+	background-color: #ccc;
+	border-radius: 10px 10px 0 0;
+	cursor: pointer;
+}
+
+.tab-box ul li.selected {
+	background-color: #FC6;
+	cursor: default;
+}
+
+.tab-box div {
+	width: 516px;
+	margin-top: -1px;
+	border: 1px solid #999;
+	line-height: 200px;
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+	var liSelected = null; /* 변수라고 하지만 내부적으로 이름 공간이다. */
+	onClicked = function(li) {
+		if (liSelected != null) {
+			/* unselect */
+			liSelected.className = "";
+		}
+		/* select */
+		li.className = "selected";
+		liSelected = li;
+	}
+</script>
+</head>
+<body>
+	<div class="tab-box">
+		<ul id="tab">
+			<li onclick='onClicked(this);'>메뉴 1</li>
+			<li onclick='onClicked(this);'>메뉴 2</li>
+			<li onclick='onClicked(this);'>메뉴 3</li>
+			<li onclick='onClicked(this);'>메뉴 4</li>
+			<li onclick='onClicked(this);'>메뉴 5</li>
+		</ul>
+		<div id="tabview">탭뷰입니다.</div>
+	</div>
+</body>
+</html>
